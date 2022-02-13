@@ -1,0 +1,4 @@
+#!/bin/bash
+
+php ./vendor/bin/phpunit
+vendor/bin/phpstan analyse --level 7 src tests
