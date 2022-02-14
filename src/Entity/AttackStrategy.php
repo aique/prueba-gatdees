@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Battlefield;
+namespace App\Entity;
 
-use App\Entity\Protocol\Protocol;
+use App\AttackStrategy\Protocol\Protocol;
 
 class AttackStrategy
 {
@@ -19,6 +19,14 @@ class AttackStrategy
     public function addProtocol(Protocol $protocol): void
     {
         $this->protocols[] = $protocol;
+    }
+
+    /**
+     * @return Protocol[]
+     */
+    public function getProtocols(): array
+    {
+        return $this->protocols;
     }
 
     /**

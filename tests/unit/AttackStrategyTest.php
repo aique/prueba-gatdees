@@ -2,7 +2,7 @@
 
 namespace App\Tests\unit;
 
-use App\Entity\Battlefield\AttackStrategy;
+use App\Entity\AttackStrategy;
 use PHPUnit\Framework\TestCase;
 
 class AttackStrategyTest extends TestCase

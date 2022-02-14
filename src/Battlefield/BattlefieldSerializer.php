@@ -2,10 +2,10 @@
 
 namespace App\Battlefield;
 
-use App\Entity\Battlefield\Battlefield;
-use App\Entity\Battlefield\Coordinates;
-use App\Entity\Battlefield\Enemy;
-use App\Entity\Battlefield\Target;
+use App\Entity\Battlefield;
+use App\Entity\Coordinates;
+use App\Entity\Enemy;
+use App\Entity\Target;
 
 class BattlefieldSerializer
 {
@@ -13,7 +13,7 @@ class BattlefieldSerializer
     {
         $battlefield = new Battlefield();
 
-        foreach ($data['scan'] as $targetData) {
+        foreach ($data as $targetData) {
             $battlefield->addTarget($this->deserializeTarget($targetData));
         }
 

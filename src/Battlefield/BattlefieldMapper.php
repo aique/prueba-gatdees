@@ -2,7 +2,7 @@
 
 namespace App\Battlefield;
 
-use App\Entity\Battlefield\Battlefield;
+use App\Entity\Battlefield;
 use App\Error\InvalidBattlefieldInputDataException;
 
 class BattlefieldMapper
@@ -24,6 +24,6 @@ class BattlefieldMapper
             throw new InvalidBattlefieldInputDataException();
         }
 
-        return $this->serializer->deserialize($data);
+        return $this->serializer->deserialize($data['scan']);
     }
 }

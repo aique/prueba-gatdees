@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\AttackStrategy\AttackStrategySerializer;
 use App\Battlefield\BattlefieldMapper;
 use App\Error\InvalidBattlefieldInputDataException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,10 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class TargetController extends AbstractController
 {
     private BattlefieldMapper $mapper;
+    private AttackStrategySerializer $attackStrategySerializer;
 
-    public function __construct(BattlefieldMapper $mapper)
-    {
+    public function __construct(
+        BattlefieldMapper $mapper,
+        AttackStrategySerializer $attackStrategySerializer
+    ) {
         $this->mapper = $mapper;
+        $this->attackStrategySerializer = $attackStrategySerializer;
     }
 
     /**
@@ -34,6 +39,8 @@ class TargetController extends AbstractController
 
         try {
             $battlefield = $this->mapper->map($inputData);
+            $attackStrategy = $this->attackStrategySerializer->deserialize($inputData);
+            $battlefield->prioritizeTargets($attackStrategy);
         } catch (InvalidBattlefieldInputDataException $ex) {
             return $this->createBadRequestResponse(
                 $ex->getMessage()

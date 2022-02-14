@@ -2,8 +2,8 @@
 
 namespace App\Tests\integration;
 
-use App\Entity\Battlefield\AttackStrategy;
-use App\Entity\Battlefield\Battlefield;
+use App\Entity\AttackStrategy;
+use App\Entity\Battlefield;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class PrioritizeTargetsTest extends KernelTestCase

@@ -2,9 +2,9 @@
 
 namespace App\Tests\unit;
 
+use App\AttackStrategy\ProtocolFactory;
 use App\Battlefield\BattlefieldValidator;
-use App\Entity\Battlefield\Enemy;
-use App\Entity\Protocol\ProtocolFactory;
+use App\Entity\Enemy;
 use PHPUnit\Framework\TestCase;
 
 class BattlefieldValidatorTest extends TestCase

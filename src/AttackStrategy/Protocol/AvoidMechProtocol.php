@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Protocol;
+namespace App\AttackStrategy\Protocol;
 
-class ClosestEnemiesProtocol implements Protocol
+class AvoidMechProtocol implements Protocol
 {
     public function prioritizeTargets(array $targets): array
     {

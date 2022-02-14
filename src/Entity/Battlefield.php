@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Battlefield;
+namespace App\Entity;
 
 class Battlefield
 {
