@@ -18,17 +18,20 @@ class TargetControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-    public function testValidResponse(): void {
+    public function testValidResponse(): void
+    {
         $this->client->request('POST', '/radar');
         $this->assertResponseIsSuccessful();
     }
 
-    public function testNoTargetsFoundResponse(): void {
+    public function testNoTargetsFoundResponse(): void
+    {
         $this->client->request('POST', '/radar');
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 
-    public function testEmptyInputResponse(): void {
+    public function testEmptyInputResponse(): void
+    {
         $this->client->request('POST', '/radar');
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }

@@ -16,7 +16,8 @@ class AttackStrategy
         $this->protocols = [];
     }
 
-    public function addProtocol(Protocol $protocol): void {
+    public function addProtocol(Protocol $protocol): void
+    {
         $this->protocols[] = $protocol;
     }
 
@@ -24,7 +25,8 @@ class AttackStrategy
      * @param Target[] $targets
      * @return Target[]
      */
-    public function prioritizeTargets(array $targets): array {
+    public function prioritizeTargets(array $targets): array
+    {
         foreach ($this->protocols as $protocol) {
             if (!$protocol instanceof Protocol) {
                 continue;

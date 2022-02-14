@@ -2,3 +2,4 @@
 
 php ./vendor/bin/phpunit
 vendor/bin/phpstan analyse --level 7 src tests
+vendor/bin/phpcbf --standard=PSR12 src tests

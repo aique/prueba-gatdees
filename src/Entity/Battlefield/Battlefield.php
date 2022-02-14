@@ -14,7 +14,8 @@ class Battlefield
         $this->targets = [];
     }
 
-    public function addTarget(Target $target): void {
+    public function addTarget(Target $target): void
+    {
         $this->targets[] = $target;
     }
 
@@ -36,7 +37,8 @@ class Battlefield
         $this->targets = $attackStrategy->prioritizeTargets($this->targets);
     }
 
-    public function nextTarget(): ?Target {
+    public function nextTarget(): ?Target
+    {
         if (empty($this->targets)) {
             return null;
         }

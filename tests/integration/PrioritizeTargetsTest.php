@@ -8,7 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class PrioritizeTargetsTest extends KernelTestCase
 {
-    public function testEmptyBattlefield(): void {
+    public function testEmptyBattlefield(): void
+    {
         $battlefield = new Battlefield();
         $attackStrategy = new AttackStrategy();
 

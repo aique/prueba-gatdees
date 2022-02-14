@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class AttackStrategyTest extends TestCase
 {
-    public function testEmptyTargets(): void {
+    public function testEmptyTargets(): void
+    {
         $attackStrategy = new AttackStrategy();
 
         $this->assertEmpty($attackStrategy->prioritizeTargets([]));

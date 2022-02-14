@@ -16,7 +16,8 @@ class BattlefieldMappingTest extends KernelTestCase
         $this->mapper = static::getContainer()->get(BattlefieldMapper::class);
     }
 
-    public function testValidInput(): void {
+    public function testValidInput(): void
+    {
         $data = [
             "coordinates" => [
                 ["x" => 10, "y" => 10],

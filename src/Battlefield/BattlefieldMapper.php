@@ -6,7 +6,8 @@ use App\Entity\Battlefield\Battlefield;
 
 class BattlefieldMapper
 {
-    public function map(array $data): Battlefield {
+    public function map(array $data): Battlefield
+    {
         return new Battlefield();
     }
 }

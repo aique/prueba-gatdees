@@ -21,7 +21,8 @@ class TargetController extends AbstractController
     /**
      * @Route("/radar", name="radar", methods={"POST"})
      */
-    public function radar(Request $request): JsonResponse {
+    public function radar(Request $request): JsonResponse
+    {
         $inputData = json_decode((string) $request->getContent(), true);
 
         if (empty($inputData)) {
