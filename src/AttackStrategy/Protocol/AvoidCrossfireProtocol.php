@@ -8,4 +8,9 @@ class AvoidCrossfireProtocol implements Protocol
     {
         return $targets;
     }
+
+    public function getIncompatibleProtocols(): array
+    {
+        return [];
+    }
 }

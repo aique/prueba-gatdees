@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\AttackStrategy\AttackStrategySerializer;
 use App\Battlefield\BattlefieldMapper;
-use App\Error\InvalidBattlefieldInputDataException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +40,7 @@ class TargetController extends AbstractController
             $battlefield = $this->mapper->map($inputData);
             $attackStrategy = $this->attackStrategySerializer->deserialize($inputData);
             $battlefield->prioritizeTargets($attackStrategy);
-        } catch (InvalidBattlefieldInputDataException $ex) {
+        } catch (\Exception $ex) {
             return $this->createBadRequestResponse(
                 $ex->getMessage()
             );

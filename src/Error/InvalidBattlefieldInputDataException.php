@@ -6,8 +6,8 @@ class InvalidBattlefieldInputDataException extends \Exception
 {
     private const MESSAGE = 'Invalid input data';
 
-    public function __construct(string $message = "", int $code = 0, ?Throwable $previous = null)
+    public function __construct()
     {
-        parent::__construct(self::MESSAGE, $code, $previous);
+        parent::__construct(self::MESSAGE);
     }
 }

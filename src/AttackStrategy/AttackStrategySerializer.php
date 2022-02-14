@@ -3,6 +3,7 @@
 namespace App\AttackStrategy;
 
 use App\Entity\AttackStrategy;
+use App\Error\IncompatibleProtocolException;
 
 class AttackStrategySerializer
 {
@@ -21,6 +22,10 @@ class AttackStrategySerializer
             $protocol = $this->protocolFactory->create($protocolName);
 
             if (!empty($protocol)) {
+                if (!$attackStrategy->isCompatible($protocol)) {
+                    throw new IncompatibleProtocolException($protocol);
+                }
+
                 $attackStrategy->addProtocol($protocol);
             }
         }

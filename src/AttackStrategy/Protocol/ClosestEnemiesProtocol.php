@@ -8,4 +8,11 @@ class ClosestEnemiesProtocol implements Protocol
     {
         return $targets;
     }
+
+    public function getIncompatibleProtocols(): array
+    {
+        return [
+            FurthestEnemiesProtocol::class,
+        ];
+    }
 }

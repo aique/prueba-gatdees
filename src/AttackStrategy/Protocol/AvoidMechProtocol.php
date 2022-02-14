@@ -8,4 +8,11 @@ class AvoidMechProtocol implements Protocol
     {
         return $targets;
     }
+
+    public function getIncompatibleProtocols(): array
+    {
+        return [
+            PrioritizeMechProtocol::class,
+        ];
+    }
 }

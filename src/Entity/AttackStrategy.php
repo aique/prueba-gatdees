@@ -45,4 +45,19 @@ class AttackStrategy
 
         return $targets;
     }
+
+    public function isCompatible(Protocol $protocol): bool
+    {
+        foreach ($this->protocols as $currentProtocol) {
+            if (!$currentProtocol instanceof Protocol) {
+                continue;
+            }
+
+            if (in_array(get_class($protocol), $currentProtocol->getIncompatibleProtocols())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

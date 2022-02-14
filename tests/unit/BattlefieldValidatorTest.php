@@ -5,6 +5,7 @@ namespace App\Tests\unit;
 use App\AttackStrategy\ProtocolFactory;
 use App\Battlefield\BattlefieldValidator;
 use App\Entity\Enemy;
+use App\Tests\src\InputDataGenerator;
 use PHPUnit\Framework\TestCase;
 
 class BattlefieldValidatorTest extends TestCase
@@ -14,10 +15,10 @@ class BattlefieldValidatorTest extends TestCase
         $battlefieldValidator = new BattlefieldValidator();
 
         $this->assertFalse($battlefieldValidator->isValid([]));
-        $this->assertFalse($battlefieldValidator->isValid($this->emptyScanData()));
-        $this->assertFalse($battlefieldValidator->isValid($this->emptyEnemiesData()));
-        $this->assertFalse($battlefieldValidator->isValid($this->negativeEnemiesNumberData()));
-        $this->assertFalse($battlefieldValidator->isValid($this->emptyProtocolsData()));
+        $this->assertFalse($battlefieldValidator->isValid(InputDataGenerator::emptyScanData()));
+        $this->assertFalse($battlefieldValidator->isValid(InputDataGenerator::emptyEnemiesData()));
+        $this->assertFalse($battlefieldValidator->isValid(InputDataGenerator::negativeEnemiesNumberData()));
+        $this->assertFalse($battlefieldValidator->isValid(InputDataGenerator::emptyProtocolsData()));
     }
 
     public function testValidScan(): void
@@ -75,62 +76,5 @@ class BattlefieldValidatorTest extends TestCase
         ];
 
         $this->assertTrue($battlefieldValidator->isValid($data));
-    }
-
-    private function emptyScanData(): array
-    {
-        return [
-            'scan' => [],
-        ];
-    }
-
-    private function emptyEnemiesData(): array
-    {
-        return [
-            'scan' => [
-                [
-                    'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
-                    ],
-                ],
-            ],
-        ];
-    }
-
-    private function negativeEnemiesNumberData(): array
-    {
-        return [
-            'scan' => [
-                [
-                    'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
-                    ],
-                    'enemies' => [
-                        'number' => -10,
-                    ],
-                ],
-            ],
-        ];
-    }
-
-    private function emptyProtocolsData(): array
-    {
-        return [
-            'scan' => [
-                [
-                    'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
-                    ],
-                    'enemies' => [
-                        'number' => 10,
-                        'type' => Enemy::SOLDIER_TYPE
-                    ],
-                    'allies' => 5
-                ],
-            ],
-        ];
     }
 }

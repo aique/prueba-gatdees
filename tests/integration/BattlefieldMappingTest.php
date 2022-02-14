@@ -2,10 +2,9 @@
 
 namespace App\Tests\integration;
 
-use App\AttackStrategy\ProtocolFactory;
 use App\Battlefield\BattlefieldMapper;
-use App\Entity\Enemy;
 use App\Error\InvalidBattlefieldInputDataException;
+use App\Tests\src\InputDataGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BattlefieldMappingTest extends KernelTestCase
