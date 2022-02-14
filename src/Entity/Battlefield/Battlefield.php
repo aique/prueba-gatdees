@@ -29,7 +29,7 @@ class Battlefield
 
     public function hasTargets(): bool
     {
-        return !empty($this->targets);
+        return count($this->targets) > 0;
     }
 
     public function prioritizeTargets(AttackStrategy $attackStrategy): void

@@ -38,7 +38,7 @@ class BattlefieldValidatorTest extends TestCase
                         'number' => 10,
                         'type' => Enemy::SOLDIER_TYPE
                     ],
-                    'allies' => 5
+                    'allies' => 5,
                 ],
             ],
         ];

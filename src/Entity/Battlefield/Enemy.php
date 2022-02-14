@@ -15,4 +15,14 @@ class Enemy
         $this->type = $type;
         $this->number = $number;
     }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function getNumber(): int
+    {
+        return $this->number;
+    }
 }
