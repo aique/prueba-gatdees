@@ -1,3 +1,3 @@
 * Symfony
 * PhpStan
-* 
+* PhpCodeSniffer

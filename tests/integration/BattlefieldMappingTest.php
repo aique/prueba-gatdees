@@ -3,6 +3,7 @@
 namespace App\Tests\integration;
 
 use App\Battlefield\BattlefieldMapper;
+use App\Error\InvalidBattlefieldInputDataException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BattlefieldMappingTest extends KernelTestCase
@@ -19,12 +20,19 @@ class BattlefieldMappingTest extends KernelTestCase
     public function testValidInput(): void
     {
         $data = [
-            "coordinates" => [
-                ["x" => 10, "y" => 10],
+            'scan' => [
+                'coordinates' => [
+                    'x' => 0,
+                    'y' => 40,
+                ],
             ],
         ];
 
-        $battlefield = $this->mapper->map($data);
+        try {
+            $battlefield = $this->mapper->map($data);
+        } catch (InvalidBattlefieldInputDataException $ex) {
+            $this->fail('InvalidBattlefieldInputDataException should not be thrown');
+        }
 
         $this->assertTrue($battlefield->hasTargets());
     }
