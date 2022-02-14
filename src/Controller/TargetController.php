@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Battlefield\BattlefieldMapper;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TargetController
+class TargetController extends AbstractController
 {
     private BattlefieldMapper $mapper;
 
@@ -31,9 +32,7 @@ class TargetController
             return new JsonResponse($responseData, Response::HTTP_BAD_REQUEST);
         }
 
-        $battlefield = $this->mapper->map(
-
-        );
+        $battlefield = $this->mapper->map($inputData);
 
         if (!$battlefield->hasTargets()) {
             $responseData = [
