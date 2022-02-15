@@ -28,9 +28,9 @@ class Battlefield
     }
 
     /**
-     * Reordena sus objetivos
-     * de ataque para priorizarlos
-     * en función de una estrategia.
+     * Reestablece la prioridad
+     * de cada objetivo de ataque para
+     * priorizarlos en función de una estrategia.
      */
     public function prioritizeTargets(AttackStrategy $attackStrategy): void
     {
@@ -39,10 +39,16 @@ class Battlefield
 
     public function nextTarget(): ?Target
     {
-        if (empty($this->targets)) {
-            return null;
+        foreach ($this->targets as $target) {
+            if (!$target instanceof Target) {
+                continue;
+            }
+
+            if ($target->getPriority() == Target::MAX_PRIORITY) {
+                return $target;
+            }
         }
 
-        return $this->targets[0];
+        return null;
     }
 }

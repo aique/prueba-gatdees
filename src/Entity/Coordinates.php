@@ -4,21 +4,21 @@ namespace App\Entity;
 
 class Coordinates
 {
-    private string $x;
-    private string $y;
+    private int $x;
+    private int $y;
 
-    public function __construct(string $x, string $y)
+    public function __construct(int $x, int $y)
     {
         $this->x = $x;
         $this->y = $y;
     }
 
-    public function getX(): string
+    public function getX(): int
     {
         return $this->x;
     }
 
-    public function getY(): string
+    public function getY(): int
     {
         return $this->y;
     }
