@@ -52,6 +52,39 @@ class InputDataGenerator
         ];
     }
 
+    public static function closestEnemiesProtocolData(): array
+    {
+        return [
+            'protocols' => [
+                ProtocolFactory::CLOSEST_ENEMIES_PROTOCOL,
+            ],
+            'scan' => [
+                [
+                    'coordinates' => [
+                        'x' => 50,
+                        'y' => 70,
+                    ],
+                    'enemies' => [
+                        'number' => 6,
+                        'type' => Enemy::SOLDIER_TYPE
+                    ],
+                    'allies' => 2,
+                ],
+                [
+                    'coordinates' => [
+                        'x' => 0,
+                        'y' => 40,
+                    ],
+                    'enemies' => [
+                        'number' => 10,
+                        'type' => Enemy::SOLDIER_TYPE
+                    ],
+                    'allies' => 5,
+                ],
+            ],
+        ];
+    }
+
     public static function incompatibleProtocolsData(): array
     {
         return [

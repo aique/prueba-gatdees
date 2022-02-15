@@ -2,15 +2,13 @@
 
 namespace App\Tests\application;
 
+use App\Tests\src\InputDataGenerator;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 class TargetControllerTest extends WebTestCase
 {
-    /**
-     * @var KernelBrowser
-     */
     private KernelBrowser $client;
 
     protected function setUp(): void
@@ -24,9 +22,10 @@ class TargetControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    public function testNoTargetsFoundResponse(): void
+    public function testInvalidInputResponse(): void
     {
-        $this->client->request('POST', '/radar');
+        $content = json_encode(InputDataGenerator::emptyEnemiesData());
+        $this->client->request('POST', '/radar', [], [], [], $content);
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 

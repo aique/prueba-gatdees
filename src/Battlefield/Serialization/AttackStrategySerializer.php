@@ -23,8 +23,10 @@ class AttackStrategySerializer
             $protocol = $this->protocolFactory->create($protocolName);
 
             if (!empty($protocol)) {
-                if (!$attackStrategy->isCompatible($protocol)) {
-                    throw new IncompatibleProtocolException($protocol);
+                $incompatibleProtocols = $attackStrategy->isCompatible($protocol);
+
+                if (!empty($incompatibleProtocols)) {
+                    throw new IncompatibleProtocolException($incompatibleProtocols);
                 }
 
                 $attackStrategy->addProtocol($protocol);

@@ -30,8 +30,17 @@ class AttackStrategy
     }
 
     /**
+     * Recibe una colección de objetivos
+     * que devuelve priorizados en función de los
+     * protocolos de ataque contemplados en la estrategia.
+     *
      * @param Target[] $targets
+     *
+     *      Colección de objetivos a priorizar.
+     *
      * @return Target[]
+     *
+     *      Misma colección de objetivos ya priorizados.
      */
     public function prioritizeTargets(array $targets): array
     {
@@ -46,7 +55,12 @@ class AttackStrategy
         return $targets;
     }
 
-    public function isCompatible(Protocol $protocol): bool
+    /**
+     * Revisa si un protocolo
+     * es compatible con los protocolos
+     * ya existentes en la estrategia de ataque.
+     */
+    public function isCompatible(Protocol $protocol): ?IncompatibleProtocols
     {
         foreach ($this->protocols as $currentProtocol) {
             if (!$currentProtocol instanceof Protocol) {
@@ -54,10 +68,10 @@ class AttackStrategy
             }
 
             if (in_array(get_class($protocol), $currentProtocol->getIncompatibleProtocols())) {
-                return false;
+                return new IncompatibleProtocols($currentProtocol, $protocol);
             }
         }
 
-        return true;
+        return null;
     }
 }

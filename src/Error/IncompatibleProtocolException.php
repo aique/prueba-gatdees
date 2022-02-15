@@ -2,18 +2,17 @@
 
 namespace App\Error;
 
-use App\Battlefield\AttackStrategy\Protocol\Protocol;
+use App\Entity\IncompatibleProtocols;
 
 class IncompatibleProtocolException extends \Exception
 {
-    private const MESSAGE = 'Incompatible protocol: %s';
+    private const MESSAGE = 'Incompatible protocols between %s and %s';
 
-    private Protocol $protocol;
-
-    public function __construct(Protocol $protocol)
+    public function __construct(IncompatibleProtocols $incompatibleProtocols)
     {
-        $this->protocol = $protocol;
+        $protocol1Class = get_class($incompatibleProtocols->getProtocol1());
+        $protocol2Class = get_class($incompatibleProtocols->getProtocol2());
 
-        parent::__construct(sprintf(self::MESSAGE, get_class($protocol)));
+        parent::__construct(sprintf(self::MESSAGE, $protocol1Class, $protocol2Class));
     }
 }

@@ -27,6 +27,11 @@ class Battlefield
         return $this->targets;
     }
 
+    /**
+     * Reordena sus objetivos
+     * de ataque para priorizarlos
+     * en función de una estrategia.
+     */
     public function prioritizeTargets(AttackStrategy $attackStrategy): void
     {
         $this->targets = $attackStrategy->prioritizeTargets($this->targets);
