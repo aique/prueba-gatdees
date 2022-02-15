@@ -64,7 +64,7 @@ class InputDataGenerator
                     ],
                     'enemies' => [
                         'number' => 6,
-                        'type' => Enemy::SOLDIER_TYPE
+                        'type' => Enemy::MECH_TYPE
                     ],
                     'allies' => 2,
                 ],
@@ -75,9 +75,20 @@ class InputDataGenerator
                     ],
                     'enemies' => [
                         'number' => 10,
-                        'type' => Enemy::SOLDIER_TYPE
+                        'type' => Enemy::MECH_TYPE
                     ],
                     'allies' => 5,
+                ],
+                [
+                    'coordinates' => [
+                        'x' => 20,
+                        'y' => 50,
+                    ],
+                    'enemies' => [
+                        'number' => 4,
+                        'type' => Enemy::SOLDIER_TYPE
+                    ],
+                    'allies' => 12,
                 ],
             ],
         ];

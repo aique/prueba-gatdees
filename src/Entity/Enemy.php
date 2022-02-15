@@ -25,4 +25,9 @@ class Enemy
     {
         return $this->number;
     }
+
+    public function hasType(string $type): bool
+    {
+        return $this->type == $type;
+    }
 }

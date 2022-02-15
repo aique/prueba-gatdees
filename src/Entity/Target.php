@@ -54,4 +54,13 @@ class Target
 
         return sqrt(pow(($origin->getX() - $x), 2) + pow(($origin->getY() - $y), 2));
     }
+
+    public function getNumEnemies(string $type): int
+    {
+        if ($this->getEnemy()->hasType($type)) {
+            return $this->getEnemy()->getNumber();
+        }
+
+        return 0;
+    }
 }

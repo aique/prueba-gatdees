@@ -18,24 +18,49 @@ class ProtocolApplicationTest extends KernelTestCase
         $this->mapper = static::getContainer()->get(BattlefieldMapper::class);
     }
 
-    public function testClosestEnemiesProtocol(): void
+    public function testEnemyDistanceProtocols(): void
     {
         $protocols = [
             ProtocolFactory::CLOSEST_ENEMIES_PROTOCOL,
         ];
 
         $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
 
-        $this->assertEquals(0, $battlefield->nextTarget()->getCoordinates()->getX());
-        $this->assertEquals(40, $battlefield->nextTarget()->getCoordinates()->getY());
+        $this->assertEquals(0, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(40, $nextTarget->getCoordinates()->getY());
 
         $protocols = [
             ProtocolFactory::FURTHEST_ENEMIES_PROTOCOL,
         ];
 
         $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
 
-        $this->assertEquals(50, $battlefield->nextTarget()->getCoordinates()->getX());
-        $this->assertEquals(70, $battlefield->nextTarget()->getCoordinates()->getY());
+        $this->assertEquals(50, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(70, $nextTarget->getCoordinates()->getY());
+    }
+
+    public function testEnemyTypeProtocols(): void
+    {
+        $protocols = [
+            ProtocolFactory::PRIORITIZE_MECH_PROTOCOL,
+        ];
+
+        $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
+
+        $this->assertEquals(0, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(40, $nextTarget->getCoordinates()->getY());
+
+        $protocols = [
+            ProtocolFactory::AVOID_MECH_PROTOCOL,
+        ];
+
+        $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
+
+        $this->assertEquals(20, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(50, $nextTarget->getCoordinates()->getY());
     }
 }
