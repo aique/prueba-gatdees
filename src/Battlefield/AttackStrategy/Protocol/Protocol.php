@@ -1,7 +1,8 @@
 <?php
 
-namespace App\AttackStrategy\Protocol;
+namespace App\Battlefield\AttackStrategy\Protocol;
 
+use App\AttackStrategy\Protocol\Protocols;
 use App\Entity\Target;
 
 interface Protocol

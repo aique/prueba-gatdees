@@ -1,7 +1,8 @@
 <?php
 
-namespace App\AttackStrategy;
+namespace App\Battlefield\Serialization;
 
+use App\Battlefield\AttackStrategy\ProtocolFactory;
 use App\Entity\AttackStrategy;
 use App\Error\IncompatibleProtocolException;
 

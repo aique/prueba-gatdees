@@ -2,7 +2,7 @@
 
 namespace App\Tests\unit;
 
-use App\AttackStrategy\ProtocolFactory;
+use App\Battlefield\AttackStrategy\ProtocolFactory;
 use App\Battlefield\BattlefieldValidator;
 use App\Entity\Enemy;
 use App\Tests\src\InputDataGenerator;
@@ -32,8 +32,8 @@ class BattlefieldValidatorTest extends TestCase
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -54,8 +54,8 @@ class BattlefieldValidatorTest extends TestCase
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -64,8 +64,8 @@ class BattlefieldValidatorTest extends TestCase
                 ],
                 [
                     'coordinates' => [
-                        'x' => '50',
-                        'y' => '60',
+                        'x' => 50,
+                        'y' => 60,
                     ],
                     'enemies' => [
                         'number' => 1,

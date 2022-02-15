@@ -1,8 +1,8 @@
 <?php
 
-namespace App\AttackStrategy\Protocol;
+namespace App\Battlefield\AttackStrategy\Protocol;
 
-class FurthestEnemiesProtocol implements Protocol
+class AssistAlliesProtocol implements Protocol
 {
     public function prioritizeTargets(array $targets): array
     {
@@ -11,8 +11,6 @@ class FurthestEnemiesProtocol implements Protocol
 
     public function getIncompatibleProtocols(): array
     {
-        return [
-            ClosestEnemiesProtocol::class,
-        ];
+        return [];
     }
 }

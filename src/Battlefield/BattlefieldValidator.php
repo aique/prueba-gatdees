@@ -63,10 +63,10 @@ class BattlefieldValidator
         return [
             new Collection([
                 'x' => [
-                    new Type('string')
+                    new Type('int')
                 ],
                 'y' => [
-                    new Type('string')
+                    new Type('int')
                 ],
             ])
         ];

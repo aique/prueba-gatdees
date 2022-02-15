@@ -1,8 +1,8 @@
 <?php
 
-namespace App\AttackStrategy;
+namespace App\Battlefield\AttackStrategy;
 
-use App\AttackStrategy\Protocol\Protocol;
+use App\Battlefield\AttackStrategy\Protocol\Protocol;
 
 class ProtocolFactory
 {

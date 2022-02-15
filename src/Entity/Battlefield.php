@@ -27,11 +27,6 @@ class Battlefield
         return $this->targets;
     }
 
-    public function hasTargets(): bool
-    {
-        return count($this->targets) > 0;
-    }
-
     public function prioritizeTargets(AttackStrategy $attackStrategy): void
     {
         $this->targets = $attackStrategy->prioritizeTargets($this->targets);

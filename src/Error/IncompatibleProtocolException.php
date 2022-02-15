@@ -2,7 +2,7 @@
 
 namespace App\Error;
 
-use App\AttackStrategy\Protocol\Protocol;
+use App\Battlefield\AttackStrategy\Protocol\Protocol;
 
 class IncompatibleProtocolException extends \Exception
 {

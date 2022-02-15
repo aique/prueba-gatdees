@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AttackStrategy\Protocol;
+namespace App\Battlefield\AttackStrategy\Protocol;
 
 class PrioritizeMechProtocol implements Protocol
 {

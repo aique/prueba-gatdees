@@ -2,20 +2,25 @@
 
 namespace App\Battlefield;
 
+use App\Battlefield\Serialization\AttackStrategySerializer;
+use App\Battlefield\Serialization\TargetSerializer;
 use App\Entity\Battlefield;
 use App\Error\InvalidBattlefieldInputDataException;
 
 class BattlefieldMapper
 {
-    private BattlefieldSerializer $serializer;
     private BattlefieldValidator $validator;
+    private TargetSerializer $targetSerializer;
+    private AttackStrategySerializer $attackStrategySerializer;
 
     public function __construct(
-        BattlefieldSerializer $serializer,
-        BattlefieldValidator $validator
+        BattlefieldValidator $validator,
+        TargetSerializer $targetSerializer,
+        AttackStrategySerializer $attackStrategySerializer
     ) {
-        $this->serializer = $serializer;
         $this->validator = $validator;
+        $this->targetSerializer = $targetSerializer;
+        $this->attackStrategySerializer = $attackStrategySerializer;
     }
 
     public function map(array $data): Battlefield
@@ -24,6 +29,17 @@ class BattlefieldMapper
             throw new InvalidBattlefieldInputDataException();
         }
 
-        return $this->serializer->deserialize($data['scan']);
+        $battlefield = new Battlefield();
+
+        foreach ($data['scan'] as $targetData) {
+            $battlefield->addTarget(
+                $this->targetSerializer->deserialize($targetData)
+            );
+        }
+
+        $attackStrategy = $this->attackStrategySerializer->deserialize($data['protocols']);
+        $battlefield->prioritizeTargets($attackStrategy);
+
+        return $battlefield;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\AttackStrategy\Protocol\Protocol;
+use App\Battlefield\AttackStrategy\Protocol\Protocol;
 
 class AttackStrategy
 {

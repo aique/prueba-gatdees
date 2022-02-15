@@ -2,7 +2,7 @@
 
 namespace App\Tests\src;
 
-use App\AttackStrategy\ProtocolFactory;
+use App\Battlefield\AttackStrategy\ProtocolFactory;
 use App\Entity\Enemy;
 
 class InputDataGenerator
@@ -16,8 +16,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -39,8 +39,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -62,8 +62,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -84,8 +84,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => 10,
@@ -109,8 +109,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                 ],
             ],
@@ -123,8 +123,8 @@ class InputDataGenerator
             'scan' => [
                 [
                     'coordinates' => [
-                        'x' => '0',
-                        'y' => '40',
+                        'x' => 0,
+                        'y' => 40,
                     ],
                     'enemies' => [
                         'number' => -10,

@@ -18,12 +18,12 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\AttackStrategy\ProtocolFactory:
+    App\Battlefield\AttackStrategy\ProtocolFactory:
         arguments:
             -
-                'closest-enemies': '@App\AttackStrategy\Protocol\ClosestEnemiesProtocol'
-                'furthest-enemies': '@App\AttackStrategy\Protocol\FurthestEnemiesProtocol'
-                'assist-allies': '@App\AttackStrategy\Protocol\AssistAlliesProtocol'
-                'avoid-crossfire': '@App\AttackStrategy\Protocol\AvoidCrossfireProtocol'
-                'prioritize-mech': '@App\AttackStrategy\Protocol\PrioritizeMechProtocol'
-                'avoid-mech': '@App\AttackStrategy\Protocol\AvoidMechProtocol'
+                'closest-enemies': '@App\Battlefield\AttackStrategy\Protocol\ClosestEnemiesProtocol'
+                'furthest-enemies': '@App\Battlefield\AttackStrategy\Protocol\FurthestEnemiesProtocol'
+                'assist-allies': '@App\Battlefield\AttackStrategy\Protocol\AssistAlliesProtocol'
+                'avoid-crossfire': '@App\Battlefield\AttackStrategy\Protocol\AvoidCrossfireProtocol'
+                'prioritize-mech': '@App\Battlefield\AttackStrategy\Protocol\PrioritizeMechProtocol'
+                'avoid-mech': '@App\Battlefield\AttackStrategy\Protocol\AvoidMechProtocol'

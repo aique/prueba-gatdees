@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\AttackStrategy\AttackStrategySerializer;
 use App\Battlefield\BattlefieldMapper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,14 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class TargetController extends AbstractController
 {
     private BattlefieldMapper $mapper;
-    private AttackStrategySerializer $attackStrategySerializer;
 
-    public function __construct(
-        BattlefieldMapper $mapper,
-        AttackStrategySerializer $attackStrategySerializer
-    ) {
+    public function __construct(BattlefieldMapper $mapper)
+    {
         $this->mapper = $mapper;
-        $this->attackStrategySerializer = $attackStrategySerializer;
     }
 
     /**
@@ -38,17 +33,9 @@ class TargetController extends AbstractController
 
         try {
             $battlefield = $this->mapper->map($inputData);
-            $attackStrategy = $this->attackStrategySerializer->deserialize($inputData);
-            $battlefield->prioritizeTargets($attackStrategy);
         } catch (\Exception $ex) {
             return $this->createBadRequestResponse(
                 $ex->getMessage()
-            );
-        }
-
-        if (!$battlefield->hasTargets()) {
-            return $this->createBadRequestResponse(
-                'No targets found, please, review your battlefield input data'
             );
         }
 

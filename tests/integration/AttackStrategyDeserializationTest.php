@@ -2,7 +2,7 @@
 
 namespace App\Tests\integration;
 
-use App\AttackStrategy\AttackStrategySerializer;
+use App\Battlefield\Serialization\AttackStrategySerializer;
 use App\Error\IncompatibleProtocolException;
 use App\Tests\src\InputDataGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -22,7 +22,7 @@ class AttackStrategyDeserializationTest extends KernelTestCase
     {
         $this->expectException(IncompatibleProtocolException::class);
 
-        $attackStrategy = $this->serializer->deserialize(InputDataGenerator::incompatibleProtocolsData()['protocols']);
+        $this->serializer->deserialize(InputDataGenerator::incompatibleProtocolsData()['protocols']);
     }
 
     public function testValidInput(): void

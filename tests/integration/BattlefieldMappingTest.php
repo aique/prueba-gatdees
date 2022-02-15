@@ -26,7 +26,7 @@ class BattlefieldMappingTest extends KernelTestCase
             $this->fail('InvalidBattlefieldInputDataException should not be thrown');
         }
 
-        $this->assertTrue($battlefield->hasTargets());
+        $this->assertNotEmpty($battlefield->getTargets());
         $this->assertEquals(10, ($battlefield->getTargets()[0])->getEnemy()->getNumber());
         $this->assertEquals(5, ($battlefield->getTargets()[0])->getAllies());
 
@@ -36,7 +36,7 @@ class BattlefieldMappingTest extends KernelTestCase
             $this->fail('InvalidBattlefieldInputDataException should not be thrown');
         }
 
-        $this->assertTrue($battlefield->hasTargets());
+        $this->assertNotEmpty($battlefield->getTargets());
         $this->assertEquals(10, ($battlefield->getTargets()[0])->getEnemy()->getNumber());
         $this->assertEquals(0, ($battlefield->getTargets()[0])->getAllies());
     }

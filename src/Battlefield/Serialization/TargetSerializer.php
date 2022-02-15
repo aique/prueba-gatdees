@@ -1,26 +1,14 @@
 <?php
 
-namespace App\Battlefield;
+namespace App\Battlefield\Serialization;
 
-use App\Entity\Battlefield;
 use App\Entity\Coordinates;
 use App\Entity\Enemy;
 use App\Entity\Target;
 
-class BattlefieldSerializer
+class TargetSerializer
 {
-    public function deserialize(array $data): Battlefield
-    {
-        $battlefield = new Battlefield();
-
-        foreach ($data as $targetData) {
-            $battlefield->addTarget($this->deserializeTarget($targetData));
-        }
-
-        return $battlefield;
-    }
-
-    private function deserializeTarget(array $data): Target
+    public function deserialize(array $data): Target
     {
         $coordinates = $this->deserializeCoordinates($data['coordinates']);
         $enemy = $this->deserializeEnemy($data['enemies']);
