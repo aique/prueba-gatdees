@@ -52,12 +52,10 @@ class InputDataGenerator
         ];
     }
 
-    public static function closestEnemiesProtocolData(): array
+    public static function setteableProtocolData(array $protocols): array
     {
         return [
-            'protocols' => [
-                ProtocolFactory::CLOSEST_ENEMIES_PROTOCOL,
-            ],
+            'protocols' => $protocols,
             'scan' => [
                 [
                     'coordinates' => [

@@ -21,8 +21,8 @@ services:
     App\Battlefield\AttackStrategy\ProtocolFactory:
         arguments:
             -
-                'closest-enemies': '@App\Battlefield\AttackStrategy\Protocol\ClosestEnemiesProtocol'
-                'furthest-enemies': '@App\Battlefield\AttackStrategy\Protocol\FurthestEnemiesProtocol'
+                'closest-enemies': '@App\Battlefield\AttackStrategy\Protocol\DistanceProtocol\ClosestEnemiesProtocol'
+                'furthest-enemies': '@App\Battlefield\AttackStrategy\Protocol\DistanceProtocol\FurthestEnemiesProtocol'
                 'assist-allies': '@App\Battlefield\AttackStrategy\Protocol\AssistAlliesProtocol'
                 'avoid-crossfire': '@App\Battlefield\AttackStrategy\Protocol\AvoidCrossfireProtocol'
                 'prioritize-mech': '@App\Battlefield\AttackStrategy\Protocol\PrioritizeMechProtocol'
