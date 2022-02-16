@@ -1,39 +1,58 @@
-# Symfony Docker
+# Módulo de objetivos (droide YVH)
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework, with full [HTTP/2](https://symfony.com/doc/current/weblink.html), HTTP/3 and HTTPS support.
+A continuación añado una breve documentación acerca de los aspectos
+más importantes de este módulo de objetivos diseñado para el droide
+de combate YVH.
 
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
+## Puesta en marcha
 
-## Getting Started
+### Requisitos
 
-1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/)
-2. Run `docker-compose build --pull --no-cache` to build fresh images
-3. Run `docker-compose up` (the logs will be displayed in the current shell)
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker-compose down --remove-orphans` to stop the Docker containers.
+Será necesario disponer de `docker-compose` en el equipo en el que
+se ejecute este módulo.
 
-## Features
+### Arrancando el sistema
 
-* Production, development and CI ready
-* Automatic HTTPS (in dev and in prod!)
-* HTTP/2, HTTP/3 and [Preload](https://symfony.com/doc/current/web_link.html) support
-* Built-in [Mercure](https://symfony.com/doc/current/mercure.html) hub
-* [Vulcain](https://vulcain.rocks) support
-* Just 2 services (PHP FPM and Caddy server)
-* Super-readable configuration
+Para hacer uso del módulo será necesario ejecutar el siguiente comando:
 
-**Enjoy!**
+```
+sh bin/deploy
+```
 
-## Docs
+Se ejecutarán los test unitarios del propio módulo. Una vez terminados,
+será el turno de las librerías de detección de errores y corrección de
+estilos. Finalmente, arrancará el contenedor con el servidor web que
+atenderá las peticiones que han de llegar al módulo, en el siguiente
+dominio:
 
-1. [Build options](docs/build.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Installing Xdebug](docs/xdebug.md)
-6. [Using a Makefile](docs/makefile.md)
-7. [Troubleshooting](docs/troubleshooting.md)
+```
+http://localhost:8888
+```
 
-## Credits
+### Comprobando los test de la Nueva República
 
-Created by [Kévin Dunglas](https://dunglas.fr), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
+Una vez arrancado el sistema, los test proporcionados por la Nueva República se
+han ubicado en la carpeta `tests` del proyecto, y para su ejecución será
+necesario el siguiente comando:
+
+```
+sh tests/bin/tests.sh
+```
+
+El resultado debería ser algo similar a lo siguiente:
+
+![Resultado de la ejecución de los tests de la Nueva República](./doc/images/test_run.png)
+
+**IMPORTANTE** - He tenido que modificar el script para cambiar el `==` que comprueba
+que el resultado obtenido es igual que el esperado, por simplemente `=`. Entiendo que
+es una peculiaridad del bash de Ubuntu, y si se ejecutara localmente en otro sistema
+operativo, quizás sea necesario restablecer el script.
+
+## Documentación
+
+* [Estructura de directorios](./doc/filesystem.md)
+* [Modelo de datos](./doc/entities.md)
+* [Inclusión de nuevos protocolos](./doc/new-protocols.md)
+* [Complejidades](./doc/complexity.md)
+* [Librerías utilizadas](./doc/libraries.md)
+* [Requisitos originales](./doc/requirements.pdf)
