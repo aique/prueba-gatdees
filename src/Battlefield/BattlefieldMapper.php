@@ -7,6 +7,11 @@ use App\Battlefield\Serialization\TargetSerializer;
 use App\Entity\Battlefield;
 use App\Error\InvalidBattlefieldInputDataException;
 
+/**
+ * Crea la situación del campo de batalla
+ * en función de su descripción. Es utilizado para
+ * la serialización de los datos de entrada del endpoint principal.
+ */
 class BattlefieldMapper
 {
     private BattlefieldValidator $validator;

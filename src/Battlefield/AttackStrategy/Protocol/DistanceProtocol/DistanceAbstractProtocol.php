@@ -30,6 +30,11 @@ abstract class DistanceAbstractProtocol extends AbstractProtocol
         return $target->getDistance($this->origin) == $this->preferredDistance;
     }
 
+    /**
+     * Obtiene la distancia
+     * a la que el protocolo indica
+     * que han de encontrarse los enemigos.
+     */
     abstract protected function calculatePreferredEnemyDistance(array $targets, Coordinates $origin): float;
 
     public function getDependencies(): array

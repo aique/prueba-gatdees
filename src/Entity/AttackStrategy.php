@@ -6,9 +6,6 @@ use App\Battlefield\AttackStrategy\Protocol\Protocol;
 
 class AttackStrategy
 {
-    /**
-     * @var Protocol[]
-     */
     private array $protocols;
 
     public function __construct()

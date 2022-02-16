@@ -31,9 +31,6 @@ abstract class AbstractProtocol implements Protocol
      * la colección de objetivos de ataque.
      *
      * Será sobreescrito en función de sus necesidades.
-     *
-     * @param Target[] $targets
-     * @return void
      */
     protected function initialize(array $targets): void
     {
@@ -43,9 +40,6 @@ abstract class AbstractProtocol implements Protocol
      * Condición que debe
      * cumplir un objetivo de ataque para
      * satisfacer los requerimientos del protocolo.
-     *
-     * @param Target $target
-     * @return bool
      */
     abstract protected function meetRequirements(Target $target): bool;
 
