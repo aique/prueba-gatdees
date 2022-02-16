@@ -18,12 +18,13 @@ class AttackStrategy
 
     public function addProtocol(Protocol $protocol): void
     {
-        for ($i = 0 ; $i < count($this->protocols) ; $i++) {
+        for ($i = 0; $i < count($this->protocols); $i++) {
             $currentProtocol = $this->protocols[$i];
 
             if ($currentProtocol->isDependent($protocol)) {
                 $this->protocols = $this->addProtocolAtPosition(
-                    $protocol, $i
+                    $protocol,
+                    $i
                 );
 
                 return;
@@ -33,7 +34,8 @@ class AttackStrategy
         $this->protocols[] = $protocol;
     }
 
-    private function addProtocolAtPosition(Protocol $protocol, int $position): array {
+    private function addProtocolAtPosition(Protocol $protocol, int $position): array
+    {
         return array_merge(
             array_slice($this->protocols, 0, $position),
             [$protocol],
