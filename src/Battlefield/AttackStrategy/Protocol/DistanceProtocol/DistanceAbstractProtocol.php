@@ -2,34 +2,28 @@
 
 namespace App\Battlefield\AttackStrategy\Protocol\DistanceProtocol;
 
-use App\Battlefield\AttackStrategy\Protocol\Protocol;
+use App\Battlefield\AttackStrategy\Protocol\AbstractProtocol;
 use App\Entity\Coordinates;
 use App\Entity\Target;
 
-abstract class DistanceAbstractProtocol implements Protocol
+abstract class DistanceAbstractProtocol extends AbstractProtocol
 {
     protected Coordinates $origin;
+    protected float $preferredDistance;
 
     public function __construct()
     {
         $this->origin = new Coordinates(0, 0);
     }
 
-    public function prioritizeTargets(array $targets): array
+    protected function initialize(array $targets): void
     {
-        $preferredDistance = $this->calculatePreferredEnemyDistance($targets, $this->origin);
+        $this->preferredDistance = $this->calculatePreferredEnemyDistance($targets, $this->origin);
+    }
 
-        foreach ($targets as $target) {
-            if (!$target instanceof Target) {
-                continue;
-            }
-
-            if ($target->getDistance($this->origin) == $preferredDistance) {
-                $target->setPriority(Target::MAX_PRIORITY);
-            }
-        }
-
-        return $targets;
+    protected function meetRequirements(Target $target): bool
+    {
+        return $target->getDistance($this->origin) == $this->preferredDistance;
     }
 
     abstract protected function calculatePreferredEnemyDistance(array $targets, Coordinates $origin): float;

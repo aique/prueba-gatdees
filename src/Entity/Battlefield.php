@@ -9,9 +9,12 @@ class Battlefield
      */
     private array $targets;
 
-    public function __construct()
+    private AttackStrategy $attackStrategy;
+
+    public function __construct(AttackStrategy $attackStrategy)
     {
         $this->targets = [];
+        $this->attackStrategy = $attackStrategy;
     }
 
     public function addTarget(Target $target): void
@@ -27,28 +30,14 @@ class Battlefield
         return $this->targets;
     }
 
-    /**
-     * Reestablece la prioridad
-     * de cada objetivo de ataque para
-     * priorizarlos en función de una estrategia.
-     */
-    public function prioritizeTargets(AttackStrategy $attackStrategy): void
-    {
-        $this->targets = $attackStrategy->prioritizeTargets($this->targets);
-    }
-
     public function nextTarget(): ?Target
     {
-        foreach ($this->targets as $target) {
-            if (!$target instanceof Target) {
-                continue;
-            }
+        $prioritizedTargets = $this->attackStrategy->prioritizeTargets($this->targets);
 
-            if ($target->getPriority() == Target::MAX_PRIORITY) {
-                return $target;
-            }
+        if (empty($prioritizedTargets)) {
+            return null;
         }
 
-        return null;
+        return $prioritizedTargets[0];
     }
 }

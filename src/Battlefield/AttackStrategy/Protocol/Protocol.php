@@ -8,17 +8,17 @@ use App\Entity\Target;
 interface Protocol
 {
     /**
-     * Devuelve una lista de objetivos
-     * con la prioridad modificada, de manera que se
-     * encontrarán priorizados utilizando el algoritmo del propio protocolo.
+     * Devuelve una lista
+     * de objetivos que cumplen con
+     * los requisitos del protocolo de ataque.
      *
      * @param Target[] $targets
      *
-     *      Lista de objetivos original a priorizar.
+     *      Lista de objetivos original a filtrar.
      *
      * @return Target[]
      *
-     *      Lista priorizada de objetivos.
+     *      Lista filtrada de objetivos que cumplen con el protocolo.
      */
     public function prioritizeTargets(array $targets): array;
 

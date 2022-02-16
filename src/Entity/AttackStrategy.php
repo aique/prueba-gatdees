@@ -31,7 +31,7 @@ class AttackStrategy
 
     /**
      * Recibe una colección de objetivos
-     * que devuelve priorizados en función de los
+     * y devuelve aquellos que cumplan con los
      * protocolos de ataque contemplados en la estrategia.
      *
      * @param Target[] $targets

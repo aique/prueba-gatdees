@@ -10,10 +10,9 @@ class PrioritizeTargetsTest extends KernelTestCase
 {
     public function testEmptyBattlefield(): void
     {
-        $battlefield = new Battlefield();
-        $attackStrategy = new AttackStrategy();
-
-        $battlefield->prioritizeTargets($attackStrategy);
+        $battlefield = new Battlefield(
+            new AttackStrategy()
+        );
 
         $this->assertEmpty($battlefield->getTargets());
         $this->assertNull($battlefield->nextTarget());

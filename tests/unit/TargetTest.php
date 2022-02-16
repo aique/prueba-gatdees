@@ -19,15 +19,18 @@ class TargetTest extends TestCase
         $coordinates3 = new Coordinates(20, 30);
 
         $target1 = new Target(
-            $coordinates1, $enemy
+            $coordinates1,
+            $enemy
         );
 
         $target2 = new Target(
-            $coordinates2, $enemy
+            $coordinates2,
+            $enemy
         );
 
         $target3 = new Target(
-            $coordinates3, $enemy
+            $coordinates3,
+            $enemy
         );
 
         $this->assertTrue($target1->getDistance($origin) > $target2->getDistance($origin));

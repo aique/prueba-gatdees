@@ -2,11 +2,13 @@
 
 namespace App\Battlefield\AttackStrategy\Protocol;
 
-class AvoidCrossfireProtocol implements Protocol
+use App\Entity\Target;
+
+class AvoidCrossfireProtocol extends AbstractProtocol
 {
-    public function prioritizeTargets(array $targets): array
+    protected function meetRequirements(Target $target): bool
     {
-        return $targets;
+        return empty($target->getAllies());
     }
 
     public function getIncompatibleProtocols(): array

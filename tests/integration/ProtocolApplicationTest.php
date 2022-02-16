@@ -50,11 +50,34 @@ class ProtocolApplicationTest extends KernelTestCase
         $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
         $nextTarget = $battlefield->nextTarget();
 
-        $this->assertEquals(0, $nextTarget->getCoordinates()->getX());
-        $this->assertEquals(40, $nextTarget->getCoordinates()->getY());
+        $this->assertEquals(50, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(70, $nextTarget->getCoordinates()->getY());
 
         $protocols = [
             ProtocolFactory::AVOID_MECH_PROTOCOL,
+        ];
+
+        $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
+
+        $this->assertEquals(20, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(50, $nextTarget->getCoordinates()->getY());
+    }
+
+    public function testAlliesTypeProtocols(): void
+    {
+        $protocols = [
+            ProtocolFactory::ASSIST_ALLIES_PROTOCOL,
+        ];
+
+        $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));
+        $nextTarget = $battlefield->nextTarget();
+
+        $this->assertEquals(50, $nextTarget->getCoordinates()->getX());
+        $this->assertEquals(70, $nextTarget->getCoordinates()->getY());
+
+        $protocols = [
+            ProtocolFactory::AVOID_CROSSFIRE_PROTOCOL,
         ];
 
         $battlefield = $this->mapper->map(InputDataGenerator::setteableProtocolData($protocols));

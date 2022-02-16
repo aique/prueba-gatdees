@@ -2,17 +2,20 @@
 
 namespace App\Battlefield\AttackStrategy\Protocol;
 
+use App\Entity\Enemy;
 use App\Entity\Target;
 
-class AssistAlliesProtocol extends AbstractProtocol
+class PrioritizeMechProtocol extends AbstractProtocol
 {
     protected function meetRequirements(Target $target): bool
     {
-        return !empty($target->getAllies());
+        return $target->hasEnemies(Enemy::MECH_TYPE);
     }
 
     public function getIncompatibleProtocols(): array
     {
-        return [];
+        return [
+            AvoidMechProtocol::class,
+        ];
     }
 }

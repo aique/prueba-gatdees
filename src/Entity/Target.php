@@ -4,12 +4,9 @@ namespace App\Entity;
 
 class Target
 {
-    public const MAX_PRIORITY = 1;
-
     private Coordinates $coordinates;
     private Enemy $enemy;
     private int $allies;
-    private int $priority;
 
     public function __construct(
         Coordinates $coordinates,
@@ -19,7 +16,6 @@ class Target
         $this->coordinates = $coordinates;
         $this->enemy = $enemy;
         $this->allies = $allies;
-        $this->priority = -1;
     }
 
     public function getCoordinates(): Coordinates
@@ -37,16 +33,6 @@ class Target
         return $this->allies;
     }
 
-    public function getPriority(): int
-    {
-        return $this->priority;
-    }
-
-    public function setPriority(int $priority): void
-    {
-        $this->priority = $priority;
-    }
-
     public function getDistance(Coordinates $origin): float
     {
         $x = $this->getCoordinates()->getX();
@@ -55,12 +41,8 @@ class Target
         return sqrt(pow(($origin->getX() - $x), 2) + pow(($origin->getY() - $y), 2));
     }
 
-    public function getNumEnemies(string $type): int
+    public function hasEnemies(string $type): bool
     {
-        if ($this->getEnemy()->hasType($type)) {
-            return $this->getEnemy()->getNumber();
-        }
-
-        return 0;
+        return $this->getEnemy()->hasType($type) && $this->getEnemy()->getNumber() > 0;
     }
 }

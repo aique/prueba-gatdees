@@ -88,7 +88,6 @@ class InputDataGenerator
                         'number' => 4,
                         'type' => Enemy::SOLDIER_TYPE
                     ],
-                    'allies' => 12,
                 ],
             ],
         ];

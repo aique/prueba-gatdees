@@ -29,16 +29,15 @@ class BattlefieldMapper
             throw new InvalidBattlefieldInputDataException();
         }
 
-        $battlefield = new Battlefield();
+        $attackStrategy = $this->attackStrategySerializer->deserialize($data['protocols']);
+
+        $battlefield = new Battlefield($attackStrategy);
 
         foreach ($data['scan'] as $targetData) {
             $battlefield->addTarget(
                 $this->targetSerializer->deserialize($targetData)
             );
         }
-
-        $attackStrategy = $this->attackStrategySerializer->deserialize($data['protocols']);
-        $battlefield->prioritizeTargets($attackStrategy);
 
         return $battlefield;
     }

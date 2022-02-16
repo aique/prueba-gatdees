@@ -25,5 +25,5 @@ services:
                 'furthest-enemies': '@App\Battlefield\AttackStrategy\Protocol\DistanceProtocol\FurthestEnemiesProtocol'
                 'assist-allies': '@App\Battlefield\AttackStrategy\Protocol\AssistAlliesProtocol'
                 'avoid-crossfire': '@App\Battlefield\AttackStrategy\Protocol\AvoidCrossfireProtocol'
-                'prioritize-mech': '@App\Battlefield\AttackStrategy\Protocol\EnemyTypeProtocol\PrioritizeMechProtocol'
-                'avoid-mech': '@App\Battlefield\AttackStrategy\Protocol\EnemyTypeProtocol\AvoidMechProtocol'
+                'prioritize-mech': '@App\Battlefield\AttackStrategy\Protocol\PrioritizeMechProtocol'
+                'avoid-mech': '@App\Battlefield\AttackStrategy\Protocol\AvoidMechProtocol'
