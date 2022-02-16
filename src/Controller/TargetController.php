@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Battlefield\BattlefieldMapper;
+use App\Battlefield\Serialization\TargetSerializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class TargetController extends AbstractController
 {
     private BattlefieldMapper $mapper;
+    private TargetSerializer $targetSerializer;
 
-    public function __construct(BattlefieldMapper $mapper)
-    {
+    public function __construct(
+        BattlefieldMapper $mapper,
+        TargetSerializer $targetSerializer
+    ) {
         $this->mapper = $mapper;
+        $this->targetSerializer = $targetSerializer;
     }
 
     /**
@@ -39,7 +44,11 @@ class TargetController extends AbstractController
             );
         }
 
-        return new JsonResponse($battlefield->nextTarget());
+        $content = $this->targetSerializer->serialize(
+            $battlefield->nextTarget()
+        );
+
+        return new JsonResponse($content);
     }
 
     private function createBadRequestResponse(string $message): JsonResponse

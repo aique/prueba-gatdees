@@ -18,8 +18,10 @@ class TargetControllerTest extends WebTestCase
 
     public function testValidResponse(): void
     {
-        $this->client->request('POST', '/radar');
+        $content = json_encode(InputDataGenerator::validData());
+        $this->client->request('POST', '/radar', [], [], [], $content);
         $this->assertResponseIsSuccessful();
+        echo $this->client->getResponse()->getContent();
     }
 
     public function testInvalidInputResponse(): void

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-API_ENDPOINT="http://localhost:8888"
+API_ENDPOINT="https://localhost:8889"
 
 (
     cd $(dirname $0)

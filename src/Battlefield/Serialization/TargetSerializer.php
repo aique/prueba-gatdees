@@ -8,6 +8,14 @@ use App\Entity\Target;
 
 class TargetSerializer
 {
+    public function serialize(Target $target): array
+    {
+        return [
+            'x' => $target->getCoordinates()->getX(),
+            'y' => $target->getCoordinates()->getY(),
+        ];
+    }
+
     public function deserialize(array $data): Target
     {
         $coordinates = $this->deserializeCoordinates($data['coordinates']);
