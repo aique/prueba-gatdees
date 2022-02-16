@@ -24,6 +24,49 @@ class TargetControllerTest extends WebTestCase
         echo $this->client->getResponse()->getContent();
     }
 
+    public function testInputIssue1(): void
+    {
+        $content = [
+            'protocols' => [
+                'closest-enemies',
+                'avoid-mech',
+            ],
+            'scan' => [
+                [
+                    'coordinates' => [
+                        'x' => 0,
+                        'y' => 1
+                    ],
+                    'enemies' => [
+                        'type' => 'mech',
+                        'number' => 1
+                    ]
+                ], [
+                   'coordinates' => [
+                       'x' => 0,
+                       'y' => 10
+                   ],
+                   'enemies' => [
+                       'type' => 'soldier',
+                       'number' => 1
+                   ]
+                ], [
+                    'coordinates' => [
+                        'x' => 0,
+                        'y' => 99
+                    ],
+                    'enemies' => [
+                        'type' => 'mech',
+                        'number' => 1
+                    ]
+                ],
+            ],
+        ];
+
+        $this->client->request('POST', '/radar', [], [], [], json_encode($content));
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+    }
+
     public function testInvalidInputResponse(): void
     {
         $content = json_encode(InputDataGenerator::emptyEnemiesData());

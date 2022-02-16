@@ -28,4 +28,13 @@ interface Protocol
      * @return Protocols[]
      */
     public function getIncompatibleProtocols(): array;
+
+    /**
+     * Indica si el protocolo es dependiente de otro,
+     * lo que en caso de ser cierto implicaría que su nivel
+     * de prioridad es menor, con lo que deberá aplicararse después.
+     *
+     * @return string[]
+     */
+    public function isDependent(Protocol $protocol): bool;
 }

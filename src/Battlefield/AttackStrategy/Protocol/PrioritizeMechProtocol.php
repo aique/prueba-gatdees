@@ -18,4 +18,9 @@ class PrioritizeMechProtocol extends AbstractProtocol
             AvoidMechProtocol::class,
         ];
     }
+
+    public function getDependencies(): array
+    {
+        return [];
+    }
 }

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 class Battlefield
 {
+    private const DISCARDED_DISTANCE = 100;
+
     /**
      * @var Target[]
      */
@@ -19,7 +21,16 @@ class Battlefield
 
     public function addTarget(Target $target): void
     {
-        $this->targets[] = $target;
+        if (!$this->isDiscarded($target)) {
+            $this->targets[] = $target;
+        }
+    }
+
+    private function isDiscarded(Target $target): bool
+    {
+        $origin = new Coordinates(0, 0);
+
+        return $target->getDistance($origin) > self::DISCARDED_DISTANCE;
     }
 
     /**

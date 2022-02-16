@@ -26,7 +26,7 @@ API_ENDPOINT="http://localhost:8888"
                 "$API_ENDPOINT/radar"
             )
 
-            if [ "$EXPECTED" == "$OUTPUT" ]
+            if [ "$EXPECTED" = "$OUTPUT" ]
             then
                 echo "Test $TEST_NUMBER : ${COLOR_GREEN}[  OK  ]${COLOR_RESET}"
             else

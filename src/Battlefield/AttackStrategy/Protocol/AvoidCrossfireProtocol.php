@@ -15,4 +15,9 @@ class AvoidCrossfireProtocol extends AbstractProtocol
     {
         return [];
     }
+
+    public function getDependencies(): array
+    {
+        return [];
+    }
 }

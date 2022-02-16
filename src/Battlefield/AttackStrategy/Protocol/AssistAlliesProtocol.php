@@ -15,4 +15,9 @@ class AssistAlliesProtocol extends AbstractProtocol
     {
         return [];
     }
+
+    public function getDependencies(): array
+    {
+        return [];
+    }
 }

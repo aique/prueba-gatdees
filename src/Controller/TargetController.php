@@ -44,8 +44,16 @@ class TargetController extends AbstractController
             );
         }
 
+        $nextTarget = $battlefield->nextTarget();
+
+        if (empty($nextTarget)) {
+            return $this->createBadRequestResponse(
+                'Next target not found'
+            );
+        }
+
         $content = $this->targetSerializer->serialize(
-            $battlefield->nextTarget()
+            $nextTarget
         );
 
         return new JsonResponse($content);

@@ -48,4 +48,16 @@ abstract class AbstractProtocol implements Protocol
      * @return bool
      */
     abstract protected function meetRequirements(Target $target): bool;
+
+    public function isDependent(Protocol $protocol): bool
+    {
+        return in_array(get_class($protocol), $this->getDependencies());
+    }
+
+    /**
+     * Establece aquellos protocolos
+     * que han de aplicarse previamente,
+     * de forma que puedan ser combinados.
+     */
+    abstract protected function getDependencies(): array;
 }
