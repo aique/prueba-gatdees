@@ -34,6 +34,7 @@ abstract class AbstractProtocol implements Protocol
      */
     protected function initialize(array $targets): void
     {
+        // TODO sobreescribir en caso de necesidad
     }
 
     /**

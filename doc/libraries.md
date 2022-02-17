@@ -9,6 +9,10 @@ Gestión de dependencias.
 Framework principal, utilizado para la gestión de peticiones web y para dotar
 de una estructura inicial al conjunto de la aplicación.
 
+### PhpUnit
+
+Framework utilizado en el desarrollo de tests durante la fase de implementación.
+
 ### PhpStan
 
 Herramienta automatizada de análisis de código para la detección de errores y

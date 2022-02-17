@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "817980b48e0a6c2ea1ab6ac30cf1427b",
+    "content-hash": "d2561e4fd7da88ed2958e9e24f5a5959",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1341,16 +1341,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v2.1.4",
+            "version": "v2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "110e8928b6e719e9b9f146c8fd92c41a4b74a3ac"
+                "reference": "dd7dafe3bfebf8441e167b76d8a18974585467f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/110e8928b6e719e9b9f146c8fd92c41a4b74a3ac",
-                "reference": "110e8928b6e719e9b9f146c8fd92c41a4b74a3ac",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/dd7dafe3bfebf8441e167b76d8a18974585467f3",
+                "reference": "dd7dafe3bfebf8441e167b76d8a18974585467f3",
                 "shasum": ""
             },
             "require": {
@@ -1386,7 +1386,7 @@
             "description": "Composer plugin for Symfony",
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
-                "source": "https://github.com/symfony/flex/tree/v2.1.4"
+                "source": "https://github.com/symfony/flex/tree/v2.1.6"
             },
             "funding": [
                 {
@@ -1402,7 +1402,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-27T10:25:12+00:00"
+            "time": "2022-02-16T17:31:43+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -4327,16 +4327,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.4",
+            "version": "5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4"
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
-                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/0ca8db5a5fc9c8646244e629625ac486fa286bf2",
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4379,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.4"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.5"
             },
             "funding": [
                 {
@@ -4387,7 +4387,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-10T07:01:19+00:00"
+            "time": "2022-02-14T08:28:10+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
