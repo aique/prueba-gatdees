@@ -19,10 +19,10 @@ La estrategia de ataque (`AttackStrategy`) está formada por una colección de
 protocolos.
 
 Cuando se incluye un nuevo protocolo (`Protocol`), se comprueba si depende de algún
-otro. En caso de ser dependiente de un protocolo ya almacenado, se guardará destrás
+otro. En caso de ser dependiente de un protocolo ya almacenado, se guardará detrás
 de él. De esta forma se consigue una estrategia ordenada de ejecución de protocolos.
 
 Un caso práctico es la combinación que los [requisitos originales](./doc/requirements.pdf)
-mencionan, el protocolo `closest-enemies` en junto con el protocolo `assist-allies`.
+mencionan, el protocolo `closest-enemies` junto con el protocolo `assist-allies`.
 Dado que debe devolver el objetivo más cercano de aquellos que posean aliados, el
 primer protocolo es dependiente del segundo.
